@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-web-customer-tracker:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>spring-web-customer-tracker</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="spring-web-customer-tracker.war">
+      <element id="artifact" artifact-name="spring-web-customer-tracker:war exploded" />
+    </root>
+  </artifact>
+</component>
