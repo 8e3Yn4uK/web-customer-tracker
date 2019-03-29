@@ -25,6 +25,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.4.1.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: javax.persistence:javax.persistence-api:2.2" />
@@ -42,6 +47,8 @@
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" />
           <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8" />
           <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.7.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.47" />
           <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
           <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
