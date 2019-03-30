@@ -17,7 +17,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -63,14 +63,14 @@
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
-                        <form:input path="userName" placeholder="username" class="form-control" />
+                        <form:input path="userName" placeholder="username" class="form-control"/>
                     </div>
 
                     <!-- Password -->
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                        <form:password path="password" placeholder="password" class="form-control" />
+                        <form:password path="password" placeholder="password" class="form-control"/>
                     </div>
 
                     <!-- Register Button -->

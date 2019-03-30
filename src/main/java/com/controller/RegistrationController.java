@@ -1,11 +1,13 @@
 package com.controller;
 
+
 import com.user.CrmUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
@@ -29,7 +31,7 @@ public class RegistrationController {
     @Autowired
     private UserDetailsManager userDetailsManager;
 
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -59,6 +61,7 @@ public class RegistrationController {
         String userName = theCrmUser.getUserName();
 
         logger.info("Processing registration form for: " + userName);
+
         // form validation
         if (theBindingResult.hasErrors()) {
 
@@ -70,6 +73,7 @@ public class RegistrationController {
             return "registration-form";
         }
 
+        // check the database if user already exists
         boolean userExists = doesUserExist(userName);
 
         if (userExists) {
@@ -81,15 +85,24 @@ public class RegistrationController {
             return "registration-form";
         }
 
+        //
+        // whew ... we passed all of the validation checks!
+        // let's get down to business!!!
+        //
 
+        // encrypt the password
         String encodedPassword = passwordEncoder.encode(theCrmUser.getPassword());
 
+        // prepend the encoding algorithm id
         encodedPassword = "{bcrypt}" + encodedPassword;
 
-        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
+        // give user default role of "employee"
+        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_EMPLOYEE");
 
+        // create user object (from Spring Security framework)
         User tempUser = new User(userName, encodedPassword, authorities);
 
+        // save user in the database
         userDetailsManager.createUser(tempUser);
 
         logger.info("Successfully created user: " + userName);
@@ -101,10 +114,12 @@ public class RegistrationController {
 
         logger.info("Checking if user exists: " + userName);
 
+        // check the database if the user already exists
         boolean exists = userDetailsManager.userExists(userName);
 
         logger.info("User: " + userName + ", exists: " + exists);
 
         return exists;
     }
+
 }

@@ -16,7 +16,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -79,7 +79,7 @@
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                        <input type="password" name="password" placeholder="password" class="form-control" >
+                        <input type="password" name="password" placeholder="password" class="form-control">
                     </div>
 
                     <!-- Login/Submit Button -->
@@ -93,7 +93,7 @@
 
                     <input type="hidden"
                            name="${_csrf.parameterName}"
-                           value="${_csrf.token}" />
+                           value="${_csrf.token}"/>
 
                 </form>
 
@@ -102,7 +102,8 @@
         </div>
 
         <div>
-            <a href="${pageContext.request.contextPath}/register/showRegistrationForm" class="btn btn-primary" role="button" aria-pressed="true">Register New User</a>
+            <a href="${pageContext.request.contextPath}/register/showRegistrationForm" class="btn btn-primary"
+               role="button" aria-pressed="true">Register New User</a>
         </div>
 
     </div>
