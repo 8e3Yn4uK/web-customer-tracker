@@ -97,7 +97,7 @@ public class RegistrationController {
         encodedPassword = "{bcrypt}" + encodedPassword;
 
         // give user default role of "employee"
-        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_EMPLOYEE");
+        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
 
         // create user object (from Spring Security framework)
         User tempUser = new User(userName, encodedPassword, authorities);
