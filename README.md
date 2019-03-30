@@ -1,8 +1,8 @@
 # web-customer-tracker
 
- ####CRM - Customer Relationship Manager
+ CRM - Customer Relationship Manager
 
-#####Functionality:
+Functionality:
 
 * Registration 
 * Add new customer
@@ -15,7 +15,7 @@
 
 
 
-#####Technologies:
+Technologies:
 
 * Spring MVC
 * Spring AOP
