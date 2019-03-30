@@ -1,13 +1,16 @@
 package com.config;
 
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 
-import javax.sql.DataSource;
 
 /**
  * Created by 8e3Yn4uK on 29.03.2019
@@ -35,14 +38,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/customer/delete").hasRole("ADMIN")
                 .antMatchers("/customer/**").hasRole("USER")
                 .antMatchers("/resources/**").permitAll()
-             .and()
+                .and()
                 .formLogin()
-                    .loginPage("/showMyLoginPage")
-                    .loginProcessingUrl("/authenticateTheUser")
-                    .permitAll()
-             .and()
+                .loginPage("/showMyLoginPage")
+                .loginProcessingUrl("/authenticateTheUser")
+                .permitAll()
+                .and()
                 .logout().permitAll()
-             .and()
+                .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
+    }
+
+    @Bean
+    public UserDetailsManager userDetailsManager() {
+
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
+
+        jdbcUserDetailsManager.setDataSource(securityDataSource);
+
+        return jdbcUserDetailsManager;
     }
 }
