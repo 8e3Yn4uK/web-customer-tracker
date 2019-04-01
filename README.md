@@ -1,4 +1,4 @@
-# web-customer-tracker
+# Spring MVC web project
 
  CRM - Customer Relationship Manager
 
